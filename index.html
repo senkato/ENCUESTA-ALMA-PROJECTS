@@ -875,21 +875,30 @@
         function enviarAGoogleSheets(datos) {
             const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx3WWdBwV_JE-z0sGkzbD6VTEUQ4FK6fjpboqc2gl2V2Wwu2u2pbV3h_81-ye5uery7/exec';
             
+            console.log('Enviando datos a:', SCRIPT_URL);
+            console.log('Datos a enviar:', datos);
+            
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(datos)
             })
-            .then(() => {
-                // Con mode: 'no-cors' no podemos leer la respuesta, pero asumimos éxito
-                console.log('Datos enviados a Google Sheets');
-                mostrarExito();
+            .then(response => {
+                console.log('Respuesta recibida:', response);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Datos de respuesta:', data);
+                if (data.status === 'success') {
+                    mostrarExito();
+                } else {
+                    mostrarError('Error en el servidor: ' + data.message);
+                }
             })
             .catch(error => {
-                console.error('Error al enviar:', error);
-                mostrarError('Ha ocurrido un error al enviar tu respuesta. Por favor, inténtalo de nuevo.');
+                console.error('Error de red:', error);
+                mostrarError('Error de conexión. Verifica tu conexión a internet e inténtalo de nuevo.');
             });
         }
