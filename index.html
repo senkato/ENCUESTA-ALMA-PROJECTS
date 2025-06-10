@@ -10,11 +10,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: #4a4a4a;
             background: linear-gradient(135deg, #f8f6f3 0%, #ffffff 100%);
@@ -112,7 +112,7 @@
         }
 
         .section-title {
-            font-family: 'Montserrat', sans-serif !important;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: #b89e83;
@@ -139,20 +139,13 @@
             margin-bottom: 25px;
         }
 
-        fieldset {
-            border: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        legend {
+        .question-label {
             display: block;
             font-weight: 500;
             margin-bottom: 12px;
             color: #4a4a4a;
             font-size: 1rem;
-            font-family: 'Montserrat', sans-serif !important;
-            padding: 0;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .question-note {
@@ -160,7 +153,7 @@
             color: #888;
             font-style: italic;
             margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif !important;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .checkbox-group, .radio-group {
@@ -177,7 +170,7 @@
             border: 2px solid transparent;
             transition: all 0.3s ease;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif !important;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem;
             font-weight: 400;
         }
@@ -251,6 +244,25 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             accent-color: #b89e83;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #b89e83 0%, #a08965 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: transform 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
         }
 
         .footer {
@@ -352,32 +364,30 @@
                 </div>
 
                 <div class="question">
-                    <fieldset>
-                        <legend class="question-label">Tamaño de su empresa:</legend>
-                        <div class="radio-group">
-                            <label class="radio-item">
-                                <input type="radio" name="tamano" value="1-10" required>
-                                1-10 empleados
-                            </label>
-                            <label class="radio-item">
-                                <input type="radio" name="tamano" value="11-50">
-                                11-50 empleados
-                            </label>
-                            <label class="radio-item">
-                                <input type="radio" name="tamano" value="51-200">
-                                51-200 empleados
-                            </label>
-                            <label class="radio-item">
-                                <input type="radio" name="tamano" value="200+">
-                                Más de 200 empleados
-                            </label>
-                        </div>
-                    </fieldset>
+                    <span class="question-label">Tamaño de su empresa:</span>
+                    <div class="radio-group" role="radiogroup" aria-labelledby="tamano-label">
+                        <label class="radio-item">
+                            <input type="radio" name="tamano" value="1-10" required>
+                            1-10 empleados
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="tamano" value="11-50">
+                            11-50 empleados
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="tamano" value="51-200">
+                            51-200 empleados
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="tamano" value="200+">
+                            Más de 200 empleados
+                        </label>
+                    </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">Años de experiencia empresarial:</label>
-                    <div class="radio-group">
+                    <span class="question-label">Años de experiencia empresarial:</span>
+                    <div class="radio-group" role="radiogroup">
                         <label class="radio-item">
                             <input type="radio" name="experiencia" value="<5" required>
                             Menos de 5 años
@@ -405,8 +415,8 @@
                 </h3>
 
                 <div class="question">
-                    <label class="question-label">¿Considera que el diseño de su espacio de trabajo influye en los resultados de su empresa?</label>
-                    <div class="radio-group">
+                    <span class="question-label">¿Considera que el diseño de su espacio de trabajo influye en los resultados de su empresa?</span>
+                    <div class="radio-group" role="radiogroup">
                         <label class="radio-item">
                             <input type="radio" name="influencia" value="definitivamente-si" required>
                             Definitivamente sí
@@ -431,7 +441,7 @@
                 </div>
 
                 <div class="question">
-                    <label class="question-label">En su opinión, ¿cuáles son los principales beneficios de invertir en el diseño del espacio corporativo?</label>
+                    <span class="question-label">En su opinión, ¿cuáles son los principales beneficios de invertir en el diseño del espacio corporativo?</span>
                     <p class="question-note">(Seleccione máximo 3 opciones)</p>
                     <div class="checkbox-group">
                         <label class="checkbox-item">
@@ -468,231 +478,25 @@
                         </label>
                     </div>
                 </div>
-
-                <div class="question">
-                    <label class="question-label">¿Qué aspectos considera más importantes al diseñar un espacio corporativo?</label>
-                    <p class="question-note">(Ordene del 1 al 5, siendo 1 el más importante)</p>
-                    <div class="priority-grid">
-                        <div class="priority-item">
-                            <span>Funcionalidad y eficiencia operativa</span>
-                            <select class="priority-select" name="prioridad-funcionalidad" required>
-                                <option value="">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div class="priority-item">
-                            <span>Estética y diseño visual</span>
-                            <select class="priority-select" name="prioridad-estetica" required>
-                                <option value="">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div class="priority-item">
-                            <span>Bienestar y confort de las personas</span>
-                            <select class="priority-select" name="prioridad-bienestar" required>
-                                <option value="">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div class="priority-item">
-                            <span>Sostenibilidad y responsabilidad ambiental</span>
-                            <select class="priority-select" name="prioridad-sostenibilidad" required>
-                                <option value="">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div class="priority-item">
-                            <span>Coste de la inversión</span>
-                            <select class="priority-select" name="prioridad-coste" required>
-                                <option value="">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="form-section">
                 <h3 class="section-title">
                     <span class="section-icon">3</span>
-                    Experiencia y Necesidades
+                    Comentarios Adicionales
                 </h3>
 
                 <div class="question">
-                    <label class="question-label">¿Ha invertido en diseño interior profesional para su empresa en los últimos 5 años?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="experiencia-diseno" value="si-excelente" required>
-                            Sí, con excelentes resultados
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="experiencia-diseno" value="si-satisfactorio">
-                            Sí, con resultados satisfactorios
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="experiencia-diseno" value="si-sin-resultados">
-                            Sí, pero sin resultados claros
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="experiencia-diseno" value="considerando">
-                            No, pero lo estoy considerando
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="experiencia-diseno" value="no-necesario">
-                            No, y no lo considero necesario
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">Si está considerando o ha considerado contratar servicios de diseño interior, ¿qué buscaría prioritariamente en el estudio/profesional?</label>
-                    <p class="question-note">(Seleccione máximo 3 opciones)</p>
-                    <div class="checkbox-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="experiencia">
-                            Experiencia demostrable en proyectos empresariales
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="sector">
-                            Comprensión de las necesidades específicas de mi sector
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="metodologia">
-                            Metodología que integre estrategia empresarial y diseño
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="roi">
-                            Capacidad para medir el ROI de la inversión
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="tecnologia">
-                            Uso de tecnología avanzada (renders, realidad aumentada)
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="sostenibilidad">
-                            Compromiso con la sostenibilidad
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="trato-humano">
-                            Trato humano y acompañamiento en el proceso
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="busca-estudio" value="referencias">
-                            Referencias y recomendaciones de otros empresarios
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">¿Qué presupuesto aproximado destinaría a una reforma integral del diseño de su espacio corporativo?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="presupuesto" value="<10k" required>
-                            Menos de 10.000€
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="presupuesto" value="10-25k">
-                            Entre 10.000€ - 25.000€
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="presupuesto" value="25-50k">
-                            Entre 25.000€ - 50.000€
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="presupuesto" value="50-100k">
-                            Entre 50.000€ - 100.000€
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="presupuesto" value="100k+">
-                            Más de 100.000€
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="presupuesto" value="depende-retorno">
-                            Dependería del retorno esperado
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h3 class="section-title">
-                    <span class="section-icon">4</span>
-                    Visión Estratégica
-                </h3>
-
-                <div class="question">
-                    <label class="question-label">¿Cree que existe suficiente oferta en la Región de Murcia de estudios de diseño interior especializados en empresas que combinen estrategia, emoción y resultados medibles?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="oferta-murcia" value="suficiente" required>
-                            Sí, hay suficiente oferta especializada
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="oferta-murcia" value="algunos-pocos">
-                            Hay algunos, pero pocos especializados
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="oferta-murcia" value="dificil-encontrar">
-                            Es difícil encontrar profesionales con este enfoque
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="oferta-murcia" value="no-conozco">
-                            No conozco la oferta disponible
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">¿Estaría interesado/a en una propuesta de diseño que integre análisis estratégico del equipo (como el método DISC), sostenibilidad real y tecnología avanzada para crear espacios que mejoren el bienestar y la productividad?</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="interes-propuesta" value="muy-interesado" required>
-                            Muy interesado/a
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="interes-propuesta" value="moderadamente">
-                            Moderadamente interesado/a
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="interes-propuesta" value="poco">
-                            Poco interesado/a
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="interes-propuesta" value="nada">
-                            Nada interesado/a
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">COMENTARIOS ADICIONALES:</label>
+                    <label for="comentarios" class="question-label">COMENTARIOS ADICIONALES:</label>
                     <p class="question-note">Si desea compartir alguna experiencia, necesidad específica o sugerencia relacionada con el diseño de espacios corporativos:</p>
-                    <textarea class="textarea-field" name="comentarios" placeholder="Comparta aquí sus pensamientos, experiencias o sugerencias..."></textarea>
+                    <textarea id="comentarios" class="textarea-field" name="comentarios" placeholder="Comparta aquí sus pensamientos, experiencias o sugerencias..."></textarea>
                 </div>
             </div>
-            <button type="submit" style="background: linear-gradient(135deg, #b89e83 0%, #a08965 100%); color: white; padding: 15px 40px; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 20px; width: 100%; transition: transform 0.3s ease;">
+
+            <button type="submit" class="submit-btn">
                 Enviar Respuestas
             </button>
+        </form>
 
         <div class="footer">
             <h3>¡Muchas gracias por vuestro tiempo y colaboración!</h3>
@@ -726,79 +530,14 @@
             });
         });
 
-        // Validación para máximo 3 checkboxes en busca-estudio
-        const estudioCheckboxes = document.querySelectorAll('input[name="busca-estudio"]');
-        estudioCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const checkedCount = document.querySelectorAll('input[name="busca-estudio"]:checked').length;
-                if (checkedCount > 3) {
-                    this.checked = false;
-                    alert('Por favor, seleccione máximo 3 opciones.');
-                }
-            });
-        });
-
-        // Validación de prioridades únicas
-        function validatePriorities() {
-            const prioritySelects = document.querySelectorAll('.priority-select');
-            const values = Array.from(prioritySelects).map(select => select.value).filter(val => val !== '');
-            const uniqueValues = [...new Set(values)];
-            
-            if (values.length !== uniqueValues.length) {
-                alert('Por favor, asigne una prioridad diferente a cada aspecto (no se pueden repetir números).');
-                return false;
-            }
-            return true;
-        }
-
-        // Agregar validación de prioridades a los selects
-        const prioritySelects = document.querySelectorAll('.priority-select');
-        prioritySelects.forEach(select => {
-            select.addEventListener('change', validatePriorities);
-        });
-
-        // Envío del formulario
-        document.getElementById('encuestaForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (!validatePriorities()) {
-                return;
-            }
-
-            // Mostrar indicador de envío
-            mostrarIndicadorEnvio();
-
-            // Recopilar datos del formulario
-            const formData = new FormData(this);
-            const datos = {};
-            
-            // Procesar campos normales
-            for (let [key, value] of formData.entries()) {
-                if (datos[key]) {
-                    // Si ya existe, convertir a array (para checkboxes múltiples)
-                    if (Array.isArray(datos[key])) {
-                        datos[key].push(value);
-                    } else {
-                        datos[key] = [datos[key], value];
-                    }
-                } else {
-                    datos[key] = value;
-                }
-            }
-
-            // Enviar a Google Sheets automáticamente
-            enviarAGoogleSheets(datos);
-        });
-
         function mostrarIndicadorEnvio() {
-            const boton = document.querySelector('button[type="submit"]');
+            const boton = document.querySelector('.submit-btn');
             boton.innerHTML = 'Enviando respuesta...';
             boton.style.background = '#999';
             boton.disabled = true;
         }
 
         function mostrarExito() {
-            // Crear ventana modal de éxito
             const modal = document.createElement('div');
             modal.style.cssText = `
                 position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -835,14 +574,6 @@
             
             modal.appendChild(contenido);
             document.body.appendChild(modal);
-
-            // Efecto de confeti (opcional)
-            setTimeout(() => {
-                contenido.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    contenido.style.transform = 'scale(1)';
-                }, 200);
-            }, 100);
         }
 
         function mostrarError(mensaje) {
@@ -874,7 +605,7 @@
             document.body.appendChild(modal);
 
             // Restaurar botón
-            const boton = document.querySelector('button[type="submit"]');
+            const boton = document.querySelector('.submit-btn');
             boton.innerHTML = 'Enviar Respuestas';
             boton.style.background = 'linear-gradient(135deg, #b89e83 0%, #a08965 100%)';
             boton.disabled = false;
@@ -882,7 +613,7 @@
 
         // Función principal para enviar a Google Sheets
         function enviarAGoogleSheets(datos) {
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx3WWdBwV_JE-z0sGkzbD6VTEUQ4FK6fjpboqc2gl2V2Wwu2u2pbV3h_81-ye5uery7/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8v0ksfzQS8Tr8Gatc6Fpsf0MXrIdCaFmj_TT5GylyR5Tk6gLZdn1veDBUIUd2RWA/exec';
             
             console.log('Enviando datos a:', SCRIPT_URL);
             console.log('Datos a enviar:', datos);
@@ -911,3 +642,35 @@
                 mostrarError('Error de conexión. Verifica tu conexión a internet e inténtalo de nuevo.');
             });
         }
+
+        // Envío del formulario
+        document.getElementById('encuestaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Mostrar indicador de envío
+            mostrarIndicadorEnvio();
+
+            // Recopilar datos del formulario
+            const formData = new FormData(this);
+            const datos = {};
+            
+            // Procesar campos normales
+            for (let [key, value] of formData.entries()) {
+                if (datos[key]) {
+                    // Si ya existe, convertir a array (para checkboxes múltiples)
+                    if (Array.isArray(datos[key])) {
+                        datos[key].push(value);
+                    } else {
+                        datos[key] = [datos[key], value];
+                    }
+                } else {
+                    datos[key] = value;
+                }
+            }
+
+            // Enviar a Google Sheets automáticamente
+            enviarAGoogleSheets(datos);
+        });
+    </script>
+</body>
+</html>
