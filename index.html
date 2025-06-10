@@ -139,13 +139,20 @@
             margin-bottom: 25px;
         }
 
-        .question-label {
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        legend {
             display: block;
             font-weight: 500;
             margin-bottom: 12px;
             color: #4a4a4a;
             font-size: 1rem;
             font-family: 'Montserrat', sans-serif !important;
+            padding: 0;
         }
 
         .question-note {
@@ -331,8 +338,8 @@
                 </h3>
                 
                 <div class="question">
-                    <label class="question-label">Sector de su empresa:</label>
-                    <select class="select-field" name="sector" required>
+                    <label for="sector" class="question-label">Sector de su empresa:</label>
+                    <select id="sector" class="select-field" name="sector" required>
                         <option value="">Seleccione su sector...</option>
                         <option value="servicios-profesionales">Servicios profesionales (consultoría, legal, financiero)</option>
                         <option value="tecnologia">Tecnología/IT</option>
@@ -345,25 +352,27 @@
                 </div>
 
                 <div class="question">
-                    <label class="question-label">Tamaño de su empresa:</label>
-                    <div class="radio-group">
-                        <label class="radio-item">
-                            <input type="radio" name="tamano" value="1-10" required>
-                            1-10 empleados
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="tamano" value="11-50">
-                            11-50 empleados
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="tamano" value="51-200">
-                            51-200 empleados
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="tamano" value="200+">
-                            Más de 200 empleados
-                        </label>
-                    </div>
+                    <fieldset>
+                        <legend class="question-label">Tamaño de su empresa:</legend>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="tamano" value="1-10" required>
+                                1-10 empleados
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="tamano" value="11-50">
+                                11-50 empleados
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="tamano" value="51-200">
+                                51-200 empleados
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="tamano" value="200+">
+                                Más de 200 empleados
+                            </label>
+                        </div>
+                    </fieldset>
                 </div>
 
                 <div class="question">
